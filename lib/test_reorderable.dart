@@ -29,10 +29,12 @@ class _MyStatefulWidgetState extends State<TestReorderable> {
             ),
         ],
         onReorder: (int oldIndex, int newIndex) {
+          print('newindex={$newIndex}\n oldindex={$oldIndex}');
           setState(() {
             if (oldIndex < newIndex) {
               newIndex -= 1;
             }
+            print('newindex={$newIndex}');
             final int item = _items.removeAt(oldIndex);
             _items.insert(newIndex, item);
           });
