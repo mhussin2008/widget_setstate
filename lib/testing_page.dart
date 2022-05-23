@@ -3,6 +3,7 @@ import 'new_pie_chart.dart';
 import 'new_slider.dart';
 import 'count.dart';
 import 'options_list.dart';
+import 'fading_widget_package.dart';
 
 class TestingPage extends StatefulWidget {
   const TestingPage({Key? key}) : super(key: key);
@@ -99,7 +100,15 @@ class _TestingPageState extends State<TestingPage> {
                         {updateOptions(sel,1);},
                 selected: selected[1],
                 pNum: 1,
-              )
+              ),
+              FadingAnimation(
+                duration: 3,
+                child: Icon(
+                  Icons.favorite,
+                  size: 100,
+                  color: Colors.red,
+                ),
+              ),
             ],
           )
       ),

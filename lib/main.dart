@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'test_reorderable.dart';
 import 'testing_page.dart';
 
 void main() {
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const TestingPage(),
+      //home: const TestingPage(),
+      home:  TestReorderable(),
     );
   }
 }
