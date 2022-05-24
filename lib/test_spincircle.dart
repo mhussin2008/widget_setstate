@@ -13,11 +13,46 @@ class TestSpinCircle extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<TestSpinCircle> {
+  int selectedIndex=0;
 
+List<List<SCItem>> circleItem=  [[
+  //Suggested Count: 3
+  SCItem(icon: const Icon(Icons.add), onPressed: (){}
+    //   () {
+    // Navigator.of(context).push(
+    //     MaterialPageRoute(
+    //         builder: (context)=>const TestingPage()));
+    //    }
+
+  ),
+  SCItem(icon: const Icon(Icons.add), onPressed: () {print('add');}),
+  SCItem(icon: const Icon(Icons.add), onPressed: () {}),
+  SCItem(icon: const Icon(Icons.add ), onPressed: () {})
+],
+  [
+  SCItem(icon: const Icon(Icons.print), onPressed: (){print('print');}),
+    SCItem(icon: const Icon(Icons.print), onPressed: () {}),
+  SCItem(icon: const Icon(Icons.print), onPressed: () {}),
+  SCItem(icon: const Icon(Icons.print ), onPressed: () {})],
+
+  [
+    SCItem(icon: const Icon(Icons.map), onPressed: (){print('map');}),
+    SCItem(icon: const Icon(Icons.map), onPressed: () {}),
+    SCItem(icon: const Icon(Icons.map), onPressed: () {}),
+    SCItem(icon: const Icon(Icons.map ), onPressed: () {})],
+
+  [
+    SCItem(icon: const Icon(Icons.account_balance_outlined), onPressed: (){print('account');}),
+    SCItem(icon: const Icon(Icons.account_balance_outlined), onPressed: () {}),
+    SCItem(icon: const Icon(Icons.account_balance_outlined), onPressed: () {}),
+    SCItem(icon: const Icon(Icons.account_balance_outlined ), onPressed: () {})],
+
+
+];
 
   @override
   Widget build(BuildContext context) {
-
+    print(selectedIndex.toString());
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -41,25 +76,32 @@ class _MyStatefulWidgetState extends State<TestSpinCircle> {
                   ),
                   elevation: 2
               ),
-              elevation: 2.0,
+              elevation: 3.0,
               items: [
                 // Suggested count : 4
                 SCBottomBarItem(icon: Icons.verified_user, title: "User", onPressed: () {
+                  setState(() {
+                    selectedIndex = 0;
+                  });
+                }),
+                SCBottomBarItem(icon: Icons.supervised_user_circle, title: "Details", onPressed: () {
+                  setState(() {
+                    selectedIndex = 1;
+                  });
+                }),
+                SCBottomBarItem(icon: Icons.notifications, title: "Notifications", onPressed: () {
+                  setState(() {
+                    selectedIndex = 2;
+                  });
+                }),
+                SCBottomBarItem(icon: Icons.details, title: "New Data", onPressed: () {
+                  setState(() {
+                    selectedIndex = 3;
+                  });
+                }),
 
-                }),
-                SCBottomBarItem(icon: Icons.supervised_user_circle, title: "Details", onPressed: () {}),
-                SCBottomBarItem(icon: Icons.notifications, title: "Notifications", onPressed: () {}),
-                SCBottomBarItem(icon: Icons.details, title: "New Data", onPressed: () {}),
               ],
-              circleItems: [
-                //Suggested Count: 3
-                SCItem(icon: const Icon(Icons.add), onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context)=>const TestingPage()));
-                }),
-                SCItem(icon: const Icon(Icons.print), onPressed: () {}),
-                SCItem(icon: const Icon(Icons.map), onPressed: () {}),
-              ],
+              circleItems:circleItem[selectedIndex],
               bnbHeight: 80 // Suggested Height 80
           ),
           child: Container(
